@@ -1,0 +1,167 @@
+@require './vars'
+
+.icon-loading-outlined {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.box {
+  background: #FFFFFF;
+  // box-shadow: 0 1px 1px 0 rgba(60,75,100,0.14), 0 2px 1px -1px rgba(60,75,100,0.12);
+  box-shadow: 0 1px 1px 0 rgba(60,75,100,0.14);
+  border-radius: 2px;
+  &+.box {
+    margin-top: var(--box-margin);
+  }
+}
+.box-padding {
+  padding: 24px 36px
+}
+.box-mt { margin-top: $box-margin; }
+.box-ml { margin-left: $box-margin; }
+.mix-search-box {
+  width: --mix-search-box-width
+}
+
+.operation-guide {
+  position: absolute
+  // background: rgba(255,255,255,0.60);
+  background: $orange-lighter
+  box-shadow: 0 1px 1px 0 rgba($orange, 0.14);
+  border-radius: 100px
+  display: inline-block
+  // height: 30px
+  padding: 3px .8em
+  margin: -13px auto -5px
+  font-size: 13px
+  vertical-align: middle
+  white-space: nowrap
+  overflow: hidden
+  // color: $font-color-assist1
+  &>i:first-child {
+    margin-right: 5px
+  }
+  &>span:last-child {
+    display: inline-block
+    vertical-align: top
+  }
+}
+
+.btn-link {
+  display: inline-block
+  padding: 5px 2px
+  cursor: pointer
+  &:before {
+    margin-right: 5px
+    color: $primary-color
+  }
+}
+
+// 边框表格
+.bordered-table {
+  margin-right: -9px
+
+  .ant-table-bordered, .ant-table-header {
+    tr, td, th {
+      border-color: #CAD0D6 !important
+    }
+  }
+
+  .ant-table-bordered .ant-table-fixed-left table, .ant-table-bordered .ant-table-header > table {
+    border-color: #CAD0D6 !important
+  }
+
+  .ant-table-hide-scrollbar {
+    background: #fff
+  }
+}
+
+.page-title {
+  color: $font-color-normal
+  text-shadow: 0 0 1px rgba(@color, 0.3)
+  font-weight: 500
+  font-size: 16px
+}
+
+// 门店停用文字样式
+.shop-stop-text {
+  color: rgba(43,62,67,0.4);
+}
+
+// 套餐标签
+.bundle-tag {
+  display: inline-block
+  margin-right: 4px
+  padding: 0 4px
+  border-radius: 2px
+  color: #08b9ce
+  text-align: center
+  font-size: 12px
+  color: #b19a01
+  background: #fffbde
+  border: 1px solid #d9c01b
+  line-height: normal
+}
+
+.ant-pagination {
+  .ant-pagination-item, .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next {
+    min-width: 28px;
+    height: 28px;
+    line-height: 26px;
+  }
+
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: 28px;
+    .ant-select-selection-item {
+      line-height: 28px;
+    }
+  }
+
+  .ant-pagination-options-quick-jumper {
+    height: 28px;
+    line-height: 28px;
+    input {
+      height: 28px;
+    }
+  }
+}
+.ant-tooltip {
+  max-width: 350px 
+}
+
+// fix:style 抽屉组件打开后出现黑边
+.ant-drawer.ant-drawer-open {
+  outline: none
+}
+
+.notification-update-icon {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+html:not([lang^='zh-']) {
+  .notification-update-icon {
+    width: 100px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+  }
+}
+
+.ant-notification-topRight {
+  top: 54px !important
+}
+.notification-update-class {
+  .ant-notification-notice-message, .ant-notification-notice-close {
+    display: none !important
+  }
+}

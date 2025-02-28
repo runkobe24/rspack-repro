@@ -1,0 +1,103 @@
+@require './vars'
+@require './reset'
+@require './base'
+@require './util'
+@require './common'
+@require './animation'
+@require './typeset'
+
+
+// .is-mac {
+//   --header-height: 36px
+// }
+
+// .is-win {
+//   --header-height: 54px
+// }
+
+// 客户端环境适配
+.is-window-controls-overlay {
+  --header-height: 36px
+  .app-header {
+    position: fixed;
+    z-index: 1010;
+    .logo { height: 26px; margin-top: -2px;}
+    .avatar { width: 20px; height: 20px; }
+    .header-link { margin: 0 8px; }
+  }
+  &.is-win .app-header .app-header__right { 
+    margin-right: calc(100vw - env(titlebar-area-x) - env(titlebar-area-width));
+  }
+  &.is-mac {
+    .app-header .app-header__left {
+      margin-left: 0px;
+      transition: all 0.15s ease-in-out
+      .logo {
+        display: none
+      }
+    }
+    &:not(.is-fullscreen) {
+      .app-header .app-header__left { margin-left: 60px; }
+    }
+  }
+  .app-header .quick-check { width: 110px; height: 22px; font-size: 12px; }
+  .app-header .quick-check img { width: 11px; height: 11px; margin-top: -1px; }
+
+  .app-page--fixed {
+    .app-tabbar {padding-left: 70px;}
+  }
+  .app-header {-webkit-app-region: drag;}
+  .app-header__right {-webkit-app-region: no-drag;}
+  .app-sider {padding-top: 18px; background-position: center 40px;}
+
+  .page-cash {
+    .app-header__right { display: none; }
+  }
+
+  body > div > .ant-drawer-right,
+  body > div > .ant-drawer-left {
+    margin-top: var(--header-height)
+    height: calc(100% - var(--header-height))
+  }
+
+  .reg-tips {
+    margin-top: -12px
+    .ant-message-notice-content {padding: 6px 8px;}
+  }
+  .control-fullscreen {display: none;}
+  .page-login .logo {display:none;}
+  .float-helper { display: none;}
+}
+
+.is-fullscreen {
+  .page-cash {
+    .app-header {display: none;}
+  }
+}
+
+// fix: windows 下页面缩放问题
+@media screen and (max-width: 1440px) and (-webkit-device-pixel-ratio: 2.5) {
+  html.is-win {
+    zoom: 0.85
+    &.is-window-controls-overlay {
+      &.is-fullscreen {
+        .page-cash {
+          height: calc(100% - var(--header-height))
+        }
+      }
+    }
+    iframe {
+      zoom: 1.15
+    }
+    .app-header .app-header__right { margin-right: 80px; }
+  }
+}
+@media screen and (max-width: 1440px) and (-webkit-device-pixel-ratio: 3) {
+  html.is-win {
+    zoom: 0.75
+    iframe {
+      zoom: 1.3
+    }
+    .app-header .app-header__right { margin-right: 100px; }
+  }
+}

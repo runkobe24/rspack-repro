@@ -1,0 +1,137 @@
+// 排版
+.typeset {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  // color: #4D4F53;
+  // color: #2c3e50;
+  font-family: $zh-hans-font-family;
+
+  .header-anchor {
+    float: left;
+    margin-left: -.87em;
+    padding-right: .23em;
+    font-weight: 500;
+    opacity: 0;
+    transition: color .25s,opacity .25s;
+    &:before {
+      content: '#'
+      color: #9e9e9ea6
+    }
+  }
+  h2:hover .header-anchor,
+  h3:hover .header-anchor {
+    opacity: 1;
+  }
+
+  p, pre, ul, ol, table, blockquote {
+    margin: 0 0 1.2em;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+    font-weight: 500;
+    // color: #2c3e50;
+  }
+  h1 { font-size: 1.875em; }
+  h2 { font-size: 1.75em; }
+  h3 { font-size: 1.375em; }
+  h4 { font-size: 1.25em; }
+  h5 { font-size: 1.125em; }
+  h6 { font-size: 1em; }
+
+  &>:first-child {
+    margin-top: 0;
+  }
+
+  blockquote {
+    display: block;
+    margin-left: 0;
+    padding: 0.25em 0 0.25em 1em;
+    border-left: 2px solid #08B9CE;
+    color: #999;
+
+    p { margin: 0; }
+  }
+
+  img, video {
+    max-width: 100%;
+    vertical-align: top;
+    line-height: 0;
+    border-radius: 5px;
+  }
+  img {
+    outline: 1px solid #e1e3e5;
+  }
+  video:fullscreen {
+    border-radius: 0
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #e9e9e9;
+    margin: 1.2em 0;
+    height: 0;
+  }
+
+  // 列表
+  ul {
+    margin-left: 1.3em;
+    list-style: disc;
+  }
+  ol {
+    margin-left: 1.3em;
+    list-style: decimal;
+  }
+  li ul, li ol {
+    margin-bottom: 0.8em;
+    margin-left: 2em;
+  }
+  li ul {
+    list-style: circle;
+  }
+
+  // 表格
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  th, td, caption {
+    border: 1px solid #ddd;
+    padding: 0.5em 1em;
+    color: #666;
+  }
+  th { background: #fbfbfb; }
+}
+
+// 文档专用样式
+.typeset {
+  counter-reset: h2
+  h2 { counter-reset: h3; }
+  h3 { counter-reset: h4; }
+  h4 { counter-reset: h5; }
+
+  h2:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+  }
+  h3:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". "
+  }
+  h4:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) ". "
+  }
+}

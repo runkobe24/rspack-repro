@@ -1,0 +1,106 @@
+@require './vars'
+
+/**********
+ * 全局基础样式
+ *********/
+:root {
+  --header-height: $header-height;
+  --sider-width: $sider-width;
+  --tabbar-height: $tabbar-height;
+  --titlebar-height: $titlebar-height;
+  --page-min-width: $page-min-width;
+  --page-padding: $page-padding;
+  --box-margin: $box-margin;
+}
+
+body {
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased; /*chrome、safari*/
+  -moz-osx-font-smoothing: grayscale; /*firefox*/
+  height: 100%;
+}
+html[lang^="zh-"] {
+  body {
+    font-family: $base-font-family-zh;
+    color: $font-color-normal;
+  }
+}
+
+// 非中文环境
+html:not([lang^="zh-"]) {
+  body {
+    font-family: 'font-global';
+    color: darken($font-color-normal, 30%);
+  }
+}
+
+html[lang="en-US"], html[lang="es-ES"] {
+  --sider-width: 135px
+}
+
+html[lang="pt-BR"]{
+  --sider-width: 150px
+}
+
+@media screen and (max-width: 1280px) {
+  html.is-global {
+    --header-height: $header-height - 10px
+    --tabbar-height: $tabbar-height - 4px
+    --page-padding: $page-padding - 4px
+    --box-margin: $box-margin - 2px
+    body {
+      font-size: 13px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html:not([lang^="zh-"]) {
+    --sider-width: $sider-width;
+  }
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: $primary-color;
+}
+
+::selection {
+  color: #fff;
+  background: $primary-color;
+}
+
+a {
+  color: $link-color;
+  strong { color: currentColor; }
+  &:hover { color: $link-hover-color; }
+}
+[v-cloak] { display: none; }
+
+// 优化滚动条样式
+// For Firefox
+@-moz-document url-prefix() { 
+  * {
+    scrollbar-width: thin
+    scrollbar-color: rgba($font-color-assist3, 0.4) transparent
+  }
+} 
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba($font-color-assist3, 0.4);
+  &:hover {
+    background: rgba($font-color-assist3, 0.6);
+  }
+}

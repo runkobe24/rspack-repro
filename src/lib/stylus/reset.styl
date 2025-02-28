@@ -1,0 +1,105 @@
+/**********
+ * reset
+ *********/
+* { box-sizing: border-box; }
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+html, body,
+input, select, textarea, button, fieldset, legend, pre,
+iframe, figure,
+h1, h2, h3, h4, h5, h6, p, hr,
+ul, ol, li, dl, dt, dd, menu {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%
+  font-weight: normal
+}
+ul, ol, menu { list-style: none; }
+iframe, fieldset { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+td, th {
+  padding: 0;
+  &:not([align]) {
+    text-align: inherit;
+  }
+  &[align="center"] {
+    text-align: center;
+  }
+  &[align="right"] {
+    text-align: right;
+  }
+}
+
+input, select, optgroup, textarea, button {
+  font-family: inherit;
+  font-size: 100%;
+  background-color: transparent;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline
+}
+// Remove the inheritance of text transform in Edge, Firefox, and IE.
+button, select { text-transform: none; }
+// Show the overflow in Edge
+input, button { overflow: visible; }
+// Remove the default vertical scrollbar in IE 10+.
+textarea { overflow: auto; }
+
+// Add the correct display in Edge, IE 10+, and Firefox.
+main, details { display: block; }
+template, [hidden] { display: none; }
+
+a {
+  text-decoration: none;
+  // Remove the gray background on active links in IE 10
+  background-color: transparent;
+  cursor: pointer;
+}
+img, video {
+  user-select: none;
+  // Remove the border on images inside links in IE 10.
+  border-style: none;
+  max-width: 100%;
+  vertical-align: middle;
+}
+img:not([src]), img[src=""] { opacity: 0; }
+a, img { -webkit-user-drag: none; }
+// Add the correct font weight in Chrome, Edge, and Safari.
+b, strong { font-weight: bolder; }
+small { font-size: 0.875em; }
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+// 创客贴编辑器层级， 我们项目中菜单栏的zindex是990，modal等弹窗是1000
+#chuangkit-design-header-box, #chuangkit-design-iframe, #chuangkit-design-iframe-loading {
+  z-index: 992 !important
+}
+
+#chuangkit-design-pop-black {
+  z-index: 991 !important
+}
